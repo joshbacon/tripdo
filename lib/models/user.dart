@@ -1,0 +1,1 @@
+// hold all user data like id, name, email, password, profile picture

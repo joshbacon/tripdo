@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tripdo/models/colors.dart';
-import 'package:tripdo/pages/home_page.dart';
+import 'package:tripdo/pages/loading_page.dart';
 
 // TODO:
 // - add navigation
@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
           onPrimary: accentPrimaryLight,
           secondary: accentBackLight,
           onSecondary: accentPrimaryLight,
+          tertiary: secondaryLight,
         ),
         useMaterial3: true,
       ),
@@ -34,11 +35,13 @@ class MyApp extends StatelessWidget {
           onSurface: primaryDark,
           primary: primaryDark,
           onPrimary: backgroundDark,
+          secondary: accentBackDark,
+          tertiary: secondaryDark,
         ),
         useMaterial3: true,
       ),
-      themeMode: ThemeMode.system, // TODO: change this to whatever is saved in shared preferences once that's setup
-      home: const MyHomePage(title: 'Trip-Do'),
+      themeMode: ThemeMode.light, // TODO: change this to whatever is saved in shared preferences once that's setup
+      home: const LoadingPage(),
     );
   }
 }

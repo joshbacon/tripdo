@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tripdo/widgets/nav_bar.dart';
 
 // TODO:
 // - have a settings button that lets you change the list name, add/remove people, etc.
@@ -20,7 +19,6 @@ class _ChecklistPageState extends State<ChecklistPage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('[Name of Checklist]'),
       ),
-      bottomNavigationBar: const NavBar(),
     );
   }
 }

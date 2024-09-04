@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tripdo/widgets/nav_bar.dart';
 
 class CreatePage extends StatefulWidget {
   const CreatePage({super.key});
@@ -11,12 +10,15 @@ class CreatePage extends StatefulWidget {
 class _CreatePageState extends State<CreatePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Create New List'),
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      child: const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text('create'),
+        ],
       ),
-      bottomNavigationBar: const NavBar(),
     );
   }
 }

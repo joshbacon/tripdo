@@ -1,0 +1,1 @@
+// hold things like title, amount, who has a claim, category, price maybe, etc.
