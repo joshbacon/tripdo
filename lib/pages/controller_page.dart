@@ -37,6 +37,7 @@ class _ControllerPageState extends State<ControllerPage> {
         children: List.generate(items.length, (index) => items[index]),
       ),
       bottomNavigationBar: AnimatedNotchBottomBar(
+        color: Theme.of(context).colorScheme.primary,
         notchBottomBarController: _controller,
         removeMargins: true,
         durationInMilliSeconds: 100,
@@ -49,12 +50,12 @@ class _ControllerPageState extends State<ControllerPage> {
             inActiveItem: Icon(
               Icons.home,
               size: 24.0,
-              color: Theme.of(context).colorScheme.primary
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
             activeItem: Icon(
               Icons.home,
               size: 24.0,
-              color: Theme.of(context).colorScheme.surface
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
             itemLabel: 'home',
           ),
@@ -62,12 +63,12 @@ class _ControllerPageState extends State<ControllerPage> {
             inActiveItem: Icon(
               Icons.create,
               size: 24.0,
-              color: Theme.of(context).colorScheme.primary
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
             activeItem: Icon(
               Icons.create,
               size: 24.0,
-              color: Theme.of(context).colorScheme.surface
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
             itemLabel: 'create',
           ),
@@ -75,12 +76,12 @@ class _ControllerPageState extends State<ControllerPage> {
             inActiveItem: Icon(
               Icons.person,
               size: 24.0,
-              color: Theme.of(context).colorScheme.primary
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
             activeItem: Icon(
               Icons.person,
               size: 24.0,
-              color: Theme.of(context).colorScheme.surface
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
             itemLabel: 'profile',
           ),

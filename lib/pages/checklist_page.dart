@@ -16,8 +16,19 @@ class _ChecklistPageState extends State<ChecklistPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         title: const Text('[Name of Checklist]'),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+              size: 32.0,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+            onPressed: () {},
+          )
+        ],
       ),
     );
   }

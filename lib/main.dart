@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tripdo/models/colors.dart';
 import 'package:tripdo/pages/loading_page.dart';
-
-// TODO:
-// - add navigation
-// - refine the color themes
 
 void main() {
   runApp(const MyApp());
@@ -18,25 +13,22 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Trip-Do',
       theme: ThemeData(
-        colorScheme: ColorScheme.light(
-          surface: backgroundLight,
-          onSurface: primaryLight,
-          primary: primaryLight,
-          onPrimary: accentPrimaryLight,
-          secondary: accentBackLight,
-          onSecondary: accentPrimaryLight,
-          tertiary: secondaryLight,
+        colorScheme: const ColorScheme.light(
+          surface: Color.fromARGB(255, 223, 224, 226),
+          onSurface: Color.fromARGB(255, 35, 181, 211),
+          surfaceDim: Color.fromARGB(255, 212, 212, 212),
+          primary: Color.fromARGB(255, 35, 181, 211),
+          onPrimary: Color.fromARGB(255, 236, 236, 236),
         ),
         useMaterial3: true,
       ),
       darkTheme: ThemeData(
-        colorScheme: ColorScheme.dark(
-          surface: backgroundDark,
-          onSurface: primaryDark,
-          primary: primaryDark,
-          onPrimary: backgroundDark,
-          secondary: accentBackDark,
-          tertiary: secondaryDark,
+        colorScheme: const ColorScheme.dark(
+          surface: Color.fromARGB(255, 22, 22, 22),
+          onSurface: Color.fromARGB(255, 178, 38, 202),
+          surfaceDim: Color.fromARGB(255, 51, 51, 51),
+          primary: Color.fromARGB(255, 178, 38, 202),
+          onPrimary: Color.fromARGB(255, 36, 36, 36),
         ),
         useMaterial3: true,
       ),
