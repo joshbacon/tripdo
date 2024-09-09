@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tripdo/widgets/master_list_item.dart';
+import 'package:tripdo/widgets/trip_item.dart';
 
 // TODO:
 // - just need to actually pull the checklists from the backend
@@ -13,11 +13,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  List<MasterListItem> items = [
-    const MasterListItem(),
-    const MasterListItem(),
-    const MasterListItem(),
-    const MasterListItem(),
+  List<TripItem> items = [
+    const TripItem(),
+    const TripItem(),
+    const TripItem(),
+    const TripItem(),
   ];
 
   @override

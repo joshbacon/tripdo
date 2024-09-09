@@ -4,14 +4,14 @@ import 'package:tripdo/pages/checklist_page.dart';
 // TODO:
 // - make this a button that brings you to a viewing page
 
-class MasterListItem extends StatefulWidget {
-  const MasterListItem({super.key});
+class TripItem extends StatefulWidget {
+  const TripItem({super.key});
 
   @override
-  State<MasterListItem> createState() => _MasterListItemState();
+  State<TripItem> createState() => _TripItemState();
 }
 
-class _MasterListItemState extends State<MasterListItem> {
+class _TripItemState extends State<TripItem> {
 
   String title = 'Glenelg';
   String claim = 'Bacon';
