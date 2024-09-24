@@ -61,7 +61,14 @@ class _CreatePageState extends State<CreatePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 8.0,),
+            const SizedBox(height: 32.0,),
+            const Text(
+              'Start planning a trip today!',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             TextField(
               controller: titleController,
                 style: const TextStyle(
@@ -84,29 +91,31 @@ class _CreatePageState extends State<CreatePage> {
                 const Text(
                   "Departure Date",
                   style: TextStyle(
-                    fontSize: 22.0,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Theme.of(context).colorScheme.primary,
-                        width: 3.0,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextButton(
+                      onPressed: () => _selectDate(context),
+                      child: Text(
+                        departureDate.toString().split(" ")[0],
+                        style: const TextStyle(
+                          fontSize: 18.0
+                        ),
                       )
                     ),
-                  ),
-                  child: TextButton(
-                    onPressed: () => _selectDate(context),
-                    child: Text(
-                      departureDate.toString().split(" ")[0],
-                      style: const TextStyle(
-                        fontSize: 24.0
+                    IconButton(
+                      icon: const Icon(
+                        Icons.edit,
+                        color: Colors.grey,
                       ),
-                    )
-                  ),
-                ),
+                      onPressed: () => _selectDate(context),
+                    ),
+                  ],
+                )
               ],
             ),
             const SizedBox(height: 10.0,),

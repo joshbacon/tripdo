@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tripdo/models/user.dart';
-import 'package:tripdo/widgets/trip_item.dart';
-import 'package:tripdo/widgets/user_card.dart';
+import 'package:tripdo/widgets/social_card.dart';
+import 'package:tripdo/widgets/trip_history.dart';
 
 // TODO:
 // - implement settings
@@ -16,33 +15,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-
-  bool futureFocus = true;
-  bool friendsSelected = true;
-  TextEditingController searchController = TextEditingController();
-
-  // change all these UserCard types to just User and map them in a list buider
-  // then you can use friendsSelected and the length of the search results to choose which one to display
-  List<UserCard> searchResults = [];
-  List<UserCard> friendsList = [
-    UserCard(user: User(1, "Bacon", [])),
-    UserCard(user: User(2, "Liam", [])),
-    UserCard(user: User(3, "Neil", [])),
-  ];
-  List<UserCard> friendSugestions = [
-    UserCard(user: User(1, "Neil", [])),
-    UserCard(user: User(2, "Liam", [])),
-    UserCard(user: User(3, "Bacon", [])),
-  ]; // set this to unadded friends of friends, use as default add new if nothing is searched
   
-  List<TripItem> tripHistory = [
-    const TripItem(),
-    const TripItem(),
-    const TripItem(),
-    const TripItem(),
-    const TripItem(),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -115,185 +88,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             const SizedBox(height: 8.0),
-            Expanded(
-              flex: futureFocus ? 1 : 0,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Container(
-                  padding: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    border: Border.all(
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            ' Social',
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.primary,
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.arrow_drop_down_circle_outlined,
-                              color: !futureFocus ?
-                                Theme.of(context).colorScheme.primary :
-                                Colors.transparent
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                futureFocus = true;
-                              });
-                            },
-                          )
-                        ],
-                      ),
-                      Visibility(
-                        visible: futureFocus,
-                        child: Expanded(
-                          child: Column(
-                            children: [
-                              TextField(
-                                controller: searchController,
-                                decoration: const InputDecoration(
-                                  prefixIcon: Icon(Icons.search),
-                                  border: UnderlineInputBorder(),
-                                  hintText: 'search',
-                                  hintStyle: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Expanded(
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                border: Border(
-                                                  bottom: friendsSelected ? BorderSide(
-                                                    color: Theme.of(context).colorScheme.primary,
-                                                    width: 3.0,
-                                                  ) : const BorderSide(
-                                                    width: 0.0,
-                                                  ),
-                                                )
-                                              ),
-                                              child: TextButton(
-                                                child: const Text("Friends"),
-                                                onPressed: () {
-                                                  setState(() {
-                                                    friendsSelected = true;
-                                                  });
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                border: Border(
-                                                  bottom: !friendsSelected ? BorderSide(
-                                                    color: Theme.of(context).colorScheme.primary,
-                                                    width: 3.0,
-                                                  ) : const BorderSide(
-                                                    width: 0.0,
-                                                  ),
-                                                )
-                                              ),
-                                              child: TextButton(
-                                                child: const Text("Add New"),
-                                                onPressed: () {
-                                                  setState(() {
-                                                    friendsSelected = false;
-                                                  });
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      ...friendsList
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            const SocialCard(),
             const SizedBox(height: 8.0),
-            Expanded(
-              flex: futureFocus ? 0 : 1,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Container(
-                  padding: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    border: Border.all(
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            ' Trip History',
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.primary,
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.arrow_drop_down_circle_outlined,
-                              color: futureFocus ?
-                                Theme.of(context).colorScheme.primary :
-                                Colors.transparent
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                futureFocus = false;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                      Visibility(
-                        visible: !futureFocus,
-                        child: Expanded(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: tripHistory,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            const TripHistory(),
           ],
         ),
       ),
